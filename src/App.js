@@ -7,9 +7,11 @@ function App() {
       let api = await (await fetch("https://type.fit/api/quotes")).json();
       const no = Math.round(Math.random()*1000);
 
-      console.log(no);
+      // console.log(no);
+      // console.log(api);
       console.log(api[no].text);
       document.getElementById('joke_holder').innerHTML = api[no].text;
+      document.getElementById('auther_name').innerHTML = api[no].author;
     }
 
   return (
@@ -18,6 +20,7 @@ function App() {
     <div className = "container">
 
     <h1 id="joke_holder"> click to quote</h1>
+    <p id="auther_name"></p>
     <button onClick={nextjoke}>Next</button>
     </div>
 
